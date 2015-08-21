@@ -1,0 +1,46 @@
+*pave.vim*  Perforce functionality for vim.
+
+Author:  Josh Petrie <http://joshpetrie.net>
+License: MIT license
+
+------------------------------------------------------------------------------
+INTRODUCTION                              *pave*
+
+Pave provides a set of high-level commands to interact with Perforce
+from within vim. It is not a 1:1 replacement for functionality provided by
+the command-line Perforce client (use vim's ability to invoke external 
+programs via `!` for that) or the Perforce visual client (use P4V itself for
+that).
+
+Instead, Pave tries to address more user-level tasks, such as freeing
+the user from having to worry about whether `p4 add` or `p4 edit` is the right
+operation for the current file, or quickly pulling up a diff for the current
+file.
+
+------------------------------------------------------------------------------
+COMMANDS                                  *pave-commands* 
+
+Pave provides the following commands:
+
+:PaveOpen                                 *pave-:PaveOpen*
+                                          Open the current file for add or
+                                          edit, as appropriate.
+
+:PaveRevert                               *pave-:PaveRevert*
+                                          Reverts changes to the current file.
+
+:PaveDiff                                 *pave-:PaveDiff*
+                                          Opens a diff split between the head
+                                          revision of the current file (on the
+                                          left) and the local copy of the file
+                                          (on the right).
+
+------------------------------------------------------------------------------
+ABOUT                                     *pave-about*
+
+Pave is written and maintained by Josh Petrie. Grab the latest
+version, report a bug, or request a new feature via GitHub: >
+
+  https://github.com/jpetrie/vim-pave
+<
+Pave is distributed under the terms of the MIT license.
