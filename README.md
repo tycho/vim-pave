@@ -1,11 +1,11 @@
 # pave.vim
 
-Pave provides Perforce functionality to vim.
+Pave provides Perforce functionality to Vim.
 
 The goal of this plugin is not to simply wrap the command-line `p4` utility (as
 vim's `!` command works perfectly well), nor is it to ape all of P4V's functions.
 Rather, Pave aims to provide higher-level operations that would be useful
-while using vim to edit files in a Perforce depot.
+while using Vim to edit files in a Perforce depot.
 
 For example, `p4 edit` and `p4 add` are handled together by `:PaveOpen`, which does
 the right thing based on whether or not the file in question is already in the
