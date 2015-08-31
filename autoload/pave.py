@@ -1,4 +1,5 @@
 import marshal
+import os
 import re
 import subprocess
 import tempfile
@@ -59,9 +60,10 @@ def paveRevert(path):
     vim.command("edit")
 
 def paveDiff(path):
+  extension = os.path.splitext(path)[1]
   result = execute("print", path)
-  temp = tempfile.NamedTemporaryFile(delete=False)
+  temp = tempfile.NamedTemporaryFile(delete=False, suffix=extension)
   for chunk in result[1:]:
     temp.write(chunk["data"])
 
-  vim.command("vertical diffsplit {0}".format(sanitize(temp.name)))
+  vim.command("vertical diffsplit {0}".format(temp.name))
