@@ -12,11 +12,23 @@ if not plugin_path in sys.path:
 import pave
 EOF
 
+let s:IgnoreChangedShellNotice = 0
+
+function! pave#ShouldIgnoreChangedShell()
+  return s:IgnoreChangedShellNotice
+endfunction
+
+function! pave#ResetIgnoreChangedShell()
+  let s:IgnoreChangedShellNotice = 0
+endfunction
+
 function! pave#Open()
+  let s:IgnoreChangedShellNotice = 1
   python pave.paveOpen(vim.eval("expand('%')"))
 endfunction
 
 function! pave#Revert()
+  let s:IgnoreChangedShellNotice = 1
   python pave.paveRevert(vim.eval("expand('%')"))
 endfunction
 
