@@ -16,13 +16,10 @@ useful features you'd expect. Feel free to file bugs and feature requests.
 
 ## Installation
 
-Install via [pathogen.vim](https://github.com/tpope/vim-pathogen):
+Install via your plugin manager or method of choice.
 
-    cd ~/.vim/bundle
-    git clone git://github.com/jpetrie/vim-pave.git
+Pave does not provide mappings for its command by default, so it is recommended
+that you map the plugin's commands in your `.vimrc`, for example:
 
-Use Pathogen's `:Helptags` command to generate help, and then use `:help pave`
-to view the manual. Pave does not provide mappings for its commands by default.
-It is recommended that you map the plugin's commands in your `.vimrc`, for example:
-
-    :nnoremap <leader>e :PaveOpen<CR>
+    :nnoremap <leader>pe :PaveOpen<CR>
+    :nnoremap <leader>pr :PaveRevert<CR>
