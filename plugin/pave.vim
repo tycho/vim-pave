@@ -21,6 +21,8 @@ autocmd FileChangedShell *
       \ else |
       \   let v:fcs_choice = "ask" |
       \ endif
+
+autocmd FileChangedRO * nested call pave#Open()
 augroup end
 
 command! -nargs=0 PaveOpen :call pave#Open()
