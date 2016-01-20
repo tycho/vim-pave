@@ -58,6 +58,7 @@ def paveRevert(path):
   else:
     printNote("Perforce: reverted {0}".format(result["depotFile"]))
     vim.command("edit!")
+    vim.command("setlocal readonly")
 
 def paveDiff(path):
   extension = os.path.splitext(path)[1]
