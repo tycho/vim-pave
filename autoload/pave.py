@@ -66,5 +66,6 @@ def paveDiff(path):
   temp = tempfile.NamedTemporaryFile(delete=False, suffix=extension)
   for chunk in result[1:]:
     temp.write(chunk["data"])
+  temp.flush()
 
   vim.command("vertical diffsplit {0}".format(temp.name))
