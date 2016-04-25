@@ -1,6 +1,7 @@
 import marshal
 import os
 import re
+import pipes
 import subprocess
 import tempfile
 import vim
@@ -24,9 +25,11 @@ def execute(*args):
   command = ["p4", "-G"]
   command.extend(args)
 
+  command = ["/bin/sh", "-c"] + [" ".join(map(pipes.quote, command))]
+
   # marshal.load will not accept file-like objects, only true files.
   with tempfile.TemporaryFile() as temporary:
-    process = subprocess.Popen(command, shell=True, stdin=subprocess.PIPE, stdout=temporary, stderr=subprocess.PIPE)
+    process = subprocess.Popen(command, shell=False, stdin=subprocess.PIPE, stdout=temporary, stderr=subprocess.PIPE)
     process.communicate()
 
     results = []
