@@ -36,7 +36,7 @@ def execute(*args):
     temporary.seek(0)
     try:
       while 1:
-        results.append(marshal.load(temporary.file))
+        results.append(marshal.load(temporary))
     except EOFError:
       pass
 
